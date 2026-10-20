@@ -1,0 +1,9 @@
+# FundAgent AI 依赖（Python 3.10+，已在 3.13 验证）
+# 说明：LLM 默认 mock 模式，不调用外部 API；切 real 模式只需设置环境变量（见 README）。
+fastapi>=0.110
+uvicorn[standard]>=0.29
+langgraph>=1.0            # 多 Agent 状态图（DataAgent/AnalysisAgent/ReportAgent + Orchestrator）
+langchain-core>=0.3       # 消息类型（add_messages / HumanMessage）
+httpx>=0.27               # real 模式下调用 OpenAI 兼容接口
+pyjwt>=2.8                # JWT 认证
+redis>=5.0                # 可选：Checkpointer 走 Redis 后端时需要（FUNDAGENT_CHECKPOINTER_BACKEND=redis）
