@@ -81,3 +81,13 @@ async def review(thread_id: str, payload: dict,
         thread_id=thread_id, decision=decision,
         comments=payload.get("comments", ""))
     return {"thread_id": thread_id, "status": "resuming"}
+
+
+@router.post("/tasks/{thread_id}/cancel")
+async def cancel_task(thread_id: str, user: dict = Depends(current_user)):
+    """取消正在运行或暂停中的任务。"""
+    result = await research_service.cancel_task(
+        thread_id=thread_id,
+        department_id=user["department_id"],
+        user_id=user["user_id"])
+    return result

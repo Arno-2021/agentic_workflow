@@ -174,6 +174,7 @@ Checkpointer 保证暂停期间 State 不丢失（SQLite 持久化，多轮/断�
 | GET | `/api/tasks` | 历史任务列表 |
 | GET | `/api/tasks/{thread_id}` | 任务状态（含暂停信息与节点流水） |
 | POST | `/api/tasks/{thread_id}/review` | **HitL 审核**（approve/reject，基金经理/投委会权限） |
+| POST | `/api/tasks/{thread_id}/cancel` | **取消任务**（运行中/暂停中的任务） |
 | GET | `/api/reports` `/api/reports/{id}` | 报告列表/详情（信息隔离墙校验） |
 | POST | `/api/reports/{id}/audit` | 投委会终审（留痕） |
 | GET | `/api/dashboard` | 数据看板 |
